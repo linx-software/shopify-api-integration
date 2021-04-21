@@ -1,4 +1,4 @@
-# Shopify integeration
+# Shopify integration
 
 ## Overview
 
