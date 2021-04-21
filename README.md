@@ -58,7 +58,7 @@ Configure the Solution's $.Settings:
 
    - `shopify_apiKey`: Your private app's **API Key**.
    - `shopify_password`: Your **password**.
-   - `shopify_password`: Your shop's name or hostname.
+   - `shopify_shopName`: Your shop's name or hostname.
    - `shopify_api_version`: Current version of the API, at the time of writing it is `2021-01`, and may change at a later stage.
 
 1. Save the Solution.
