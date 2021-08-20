@@ -40,7 +40,7 @@ This solution runs on a Linx cloud server instance..
 
 
 ## Subscribing to webhooks
-In order to start recieving notifications for events on your Shopify store, you first need to "subscribe" to event topics using the API. More details on webhook subscriptions can be found [here](https://shopify.dev/apps/webhooks#1-subscribe-to-a-webhook-topic).
+In order to start receiving notifications for events on your Shopify store, you first need to "subscribe" to event topics using the API. More details on webhook subscriptions can be found [here](https://shopify.dev/apps/webhooks#1-subscribe-to-a-webhook-topic).
 
 A generic Linx function has been created to subscribe to a chosen topic. To subscribe to a webhook topic:
 1. On the Linx Server dashboard, navigate to [Solution] > [Project: Shopify] > [Folder: Webhooks] > [Folder: Subscribe] >  [Function: SubscribeToWebhook]
@@ -51,8 +51,9 @@ A generic Linx function has been created to subscribe to a chosen topic. To subs
 Your app should now be subscribed to that topic.
 
 
-## Recieving webhooks event notifcations
-The Linx Solution is built to recieve all the event notifications on a single endpoint "/shopify/webhooks" hosted on a Linx API. Any webhook event that you have subscribed will be sent to this endpoint. The endpoint is setup generically to recieve a request body containing a single field `id`. This is so that the same endpoint can be used for all the webhooks, the raw data of the request body will be available inside the operation.
+## Receiving webhooks event notifications
+The Linx Solution is built to receive all the event notifications on a single endpoint "/shopify/webhooks" hosted on a Linx API. Any webhook event that you have subscribed will be sent to this endpoint. The endpoint is setup generically to receive a request body containing a single field `id`. This is so that the same endpoint can be used for all the webhooks, the raw data of the request body will be available inside the operation.
+
 
 
 
@@ -65,13 +66,13 @@ The webhook is automatically verified by a custom Linx function which achieves t
 
 ## Accessing the webhook event data
 
-Like mentioned above, this generic endpoint is designed to recieve any and all webhooks that you have subscribed to.
+Like mentioned above, this generic endpoint is designed to receive any and all webhooks that you have subscribed to.
 
 However, each event will have different data structures. Therefore if you would like to serialize the data for the different calls, you will need to check the `X-Shopify-Topic` header for an indication of what event was sent.
 
 A generic 'LogActivity' function is used to write the area i.e. "products", the event i.e. "create" and the ID of the event entity to a CSV file on the server.
 
-From this you can then use custom logic to deserialize the data into a custom type using the data passed into the operation in the `$.Parameters.Data.HttpContext.Body` property. An demonstration of this can be found in the 'LogActivity' function.
+From this you can then use custom logic to de-serialize the data into a custom type using the data passed into the operation in the `$.Parameters.Data.HttpContext.Body` property. An demonstration of this can be found in the 'LogActivity' function.
 
 
 
