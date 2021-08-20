@@ -70,7 +70,7 @@ Like mentioned above, this generic endpoint is designed to receive any and all w
 
 However, each event will have different data structures. Therefore if you would like to serialize the data for the different calls, you will need to check the `X-Shopify-Topic` header for an indication of what event was sent.
 
-A generic 'LogActivity' function is used to write the area i.e. "products", the event i.e. "create" and the ID of the event entity to a CSV file on the server.
+A generic 'LogActivity' function is used to demonstrate this and writes the area i.e. "products", the event i.e. "create" and the ID of the event entity to a CSV file on the server.
 
 From this you can then use custom logic to de-serialize the data into a custom type using the data passed into the operation in the `$.Parameters.Data.HttpContext.Body` property. An demonstration of this can be found in the 'LogActivity' function.
 
